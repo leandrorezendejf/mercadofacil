@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MercadoFácil</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/vcYcLxI.png">
+
+  <style>
+    :root {
+      --verde-claro: #43a047;
+      --verde-escuro: #2e7d32;
+      --verde-intenso: #00c853;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #e8f5e9;
+      color: #333;
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .logo img {
+      width: 150px;
+      max-width: 100%;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--verde-escuro);
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    select, input, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    select, input {
+      flex: 1 1 40%;
+    }
+    button[type="submit"] {
+      flex: 1 1 100%;
+      background: var(--verde-claro);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background: var(--verde-intenso);
+    }
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    li {
+      background: white;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .item-nome {
+      font-size: 1.4rem;
+      font-weight: bold;
+      flex: 1 1 70%;
+      color: var(--verde-escuro);
+    }
+    .item-acao button {
+      background: #ef5350;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .item-acao button:hover {
+      background: #c62828;
+    }
+    #compartilhar, #limpar {
+      width: 100%;
+      margin-top: 0.5rem;
+      background: var(--verde-escuro);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #compartilhar:hover, #limpar:hover {
+      background: #1b5e20;
+    }
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #555;
+    }
+    @media (max-width: 600px) {
+      .item-nome {
+        flex: 1 1 100%;
+        margin-bottom: 0.5rem;
+      }
+      .item-acao {
+        flex: 1 1 100%;
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://i.imgur.com/vcYcLxI.png" alt="Logo MercadoFácil">
+  </div>
+
+  <h1>MercadoFácil</h1>
+  <form id="form">
+    <select id="item" required>
+      <option value="" disabled selected>Escolha um item</option>
+      <optgroup label="Alimentos Básicos e Bebidas">
+        <option value="Arroz">Arroz</option>
+        <option value="Feijão">Feijão</option>
+        <option value="Macarrão">Macarrão</option>
+        <option value="Açúcar">Açúcar</option>
+        <option value="Sal">Sal</option>
+        <option value="Óleo">Óleo</option>
+        <option value="Pó de Café">Pó de Café</option>
+        <option value="Filtro de Café">Filtro de Café</option>
+        <option value="Toddy ou Nescau">Toddy ou Nescau</option>
+        <option value="Azeite">Azeite</option>
+        <option value="Leite Condensado">Leite Condensado</option>
+        <option value="Creme de Leite">Creme de Leite</option>
+        <option value="Biscoito">Biscoito</option>
+        <option value="Fubá">Fubá</option>
+        <option value="Granola">Granola</option>
+        <option value="Azeitona">Azeitona</option>
+        <option value="Tapioca">Tapioca</option>
+      </optgroup>
+      <optgroup label="Frios e Laticínios">
+        <option value="Leite">Leite</option>
+        <option value="Iogurte">Iogurte</option>
+        <option value="Ovo de Codorna">Ovo de Codorna</option>
+        <option value="Mussarela">Mussarela</option>
+        <option value="Presunto">Presunto</option>
+        <option value="Requeijão">Requeijão</option>
+        <option value="Manteiga">Manteiga</option>
+        <option value="Margarina">Margarina</option>
+        <option value="Carne">Carne</option>
+      </optgroup>
+      <optgroup label="Padaria e Bebidas">
+        <option value="Pão">Pão</option>
+        <option value="Pão de Queijo">Pão de Queijo</option>
+        <option value="Toddynho">Toddynho</option>
+        <option value="Cerveja">Cerveja</option>
+        <option value="Sucos e Refrigerantes">Sucos e Refrigerantes</option>
+      </optgroup>
+      <optgroup label="Hortifruti">
+        <option value="Frutas">Frutas</option>
+        <option value="Legumes">Legumes</option>
+        <option value="Verduras">Verduras</option>
+        <option value="Ovos">Ovos</option>
+      </optgroup>
+      <optgroup label="Limpeza e Utilidades">
+        <option value="Sabão em pó">Sabão em pó</option>
+        <option value="Sabão em Barra">Sabão em Barra</option>
+        <option value="Sabonete">Sabonete</option>
+        <option value="Pasta de Dente">Pasta de Dente</option>
+        <option value="Detergente">Detergente</option>
+        <option value="Veja">Veja</option>
+        <option value="Papel higiênico">Papel higiênico</option>
+        <option value="Cif">Cif</option>
+        <option value="Pinho Sol">Pinho Sol</option>
+        <option value="Água Sanitária">Água Sanitária</option>
+        <option value="Papel Toalha">Papel Toalha</option>
+        <option value="Papel Alumínio">Papel Alumínio</option>
+        <option value="Plástico Filme">Plástico Filme</option>
+        <option value="Guardanapo">Guardanapo</option>
+      </optgroup>
+    </select>
+    <input type="number" id="quantidade" placeholder="Qtd" min="1" required>
+    <button type="submit">Adicionar</button>
+  </form>
+  
+  <ul id="lista"></ul>
+  <button id="limpar" onclick="limparLista()">Limpar Lista</button>
+  <button id="compartilhar" onclick="compartilharLista()">Compartilhar via WhatsApp</button>
+  
+  <footer>
+    Criado por Leandro Rezende
+  </footer>
+
+  <script>
+    const form = document.getElementById('form');
+    const lista = document.getElementById('lista');
+    let compras = JSON.parse(localStorage.getItem('compras')) || [];
+
+    function renderLista() {
+      lista.innerHTML = '';
+      compras.forEach((compra, index) => {
+        const li = document.createElement('li');
+
+        const nomeDiv = document.createElement('div');
+        nomeDiv.className = 'item-nome';
+        nomeDiv.textContent = `${compra.item} (${compra.qtd}x)`;
+
+        const acaoDiv = document.createElement('div');
+        acaoDiv.className = 'item-acao';
+        acaoDiv.innerHTML = `<button onclick="removerItem(${index})">Remover</button>`;
+
+        li.appendChild(nomeDiv);
+        li.appendChild(acaoDiv);
+        lista.appendChild(li);
+      });
+    }
+
+    function removerItem(index) {
+      compras.splice(index, 1);
+      salvarLista();
+      renderLista();
+    }
+
+    function salvarLista() {
+      localStorage.setItem('compras', JSON.stringify(compras));
+    }
+
+    function limparLista() {
+      if (confirm("Tem certeza que deseja apagar toda a lista?")) {
+        compras = [];
+        salvarLista();
+        renderLista();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const itemSelect = document.getElementById('item');
+      const item = itemSelect.value;
+      const qtd = document.getElementById('quantidade').value;
+      if(item && qtd) {
+        compras.push({ item, qtd });
+        salvarLista();
+        renderLista();
+        form.reset();
+        itemSelect.selectedIndex = 0;
+      }
+    });
+
+    function compartilharLista() {
+      let texto = 'Minha Lista de Compras:\n';
+      compras.forEach(c => {
+        texto += `- ${c.item} (${c.qtd}x)\n`;
+      });
+      const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
+
+    renderLista();
+  </script>
+</body>
+</html>
+
